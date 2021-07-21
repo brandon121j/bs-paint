@@ -55,6 +55,44 @@ while (count <= gridWidth * gridWidth) {
  * EVENT LISTENER FUNCTIONS *
 ****************************/
 
+const selector = document.querySelectorAll('.palette-color');
+
+let brush = document.querySelector('.current-brush')
+
+let picker = '';
+
+for (const collector of selector) {
+  collector.addEventListener('click', selecting);
+  collector.style.cursor = 'pointer';
+}
+
+function selecting(event) {
+  // picker = event.target.className;
+  picker = event.target.classList[1];
+  brush.classList.replace(brush.classList[1], event.target.classList[1]);
+  // brush.classList.add(event.target.classList[1])
+  console.log(brush);
+
+}
+
+const squares = document.querySelectorAll('.canvas');
+
+for (const looper of squares) {
+  looper.addEventListener('click', coloring);
+  looper.style.cursor = 'pointer';
+}
+
+function coloring(event) {
+  event.target.classList.add(picker);
+  // console.log(event.target)
+}
+
+
+
+// selector.addEventListener('click', function(event) {
+//   event.target.console.log(style.color);
+// });
+
 // Now add some functions to handle clicking one particular square
 // and clicking one particular palette color. You can leave them
 // empty at first, though a console.log just to know they're being
