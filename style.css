@@ -79,8 +79,15 @@
 
 .color-4 {
   background-color: fuchsia;
+  color: dark;
 }
 
 /* .color-5 { */
   /* background-color: aqua; */
 /* } */
+
+.dark-mode {
+  position: relative;
+  left: 620px;
+  top: 150px;
+}

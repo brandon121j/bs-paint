@@ -49,45 +49,73 @@ while (count <= gridWidth * gridWidth) {
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
 
+const selector = document.querySelectorAll('.palette-color');
+
+const squares = document.querySelectorAll('.canvas');
+
+let brush = document.querySelector('.current-brush');
+
+let darkMode = document.querySelectorAll('.dark-mode');
+
 
 
 /****************************
  * EVENT LISTENER FUNCTIONS *
 ****************************/
 
-const selector = document.querySelectorAll('.palette-color');
-
-let brush = document.querySelector('.current-brush')
 
 let picker = '';
+
+let hover = false;
+
+let clicking = false;
 
 for (const collector of selector) {
   collector.addEventListener('click', selecting);
   collector.style.cursor = 'pointer';
 }
 
+// for (const )
+
 function selecting(event) {
   // picker = event.target.className;
   picker = event.target.classList[1];
   brush.classList.replace(brush.classList[1], event.target.classList[1]);
   // brush.classList.add(event.target.classList[1])
-  console.log(brush);
-
+  // console.log(brush);
 }
 
-const squares = document.querySelectorAll('.canvas');
-
 for (const looper of squares) {
-  looper.addEventListener('click', coloring);
+  // looper.addEventListener('mouseover', function(event) {
+  // });
+
+  looper.addEventListener('click', coloring)
   looper.style.cursor = 'pointer';
 }
 
+// while (true) {
+//   if (selector.mousdown === true) {
+//     console.log('yes')
+//   }
+// }
+
 function coloring(event) {
-  event.target.classList.add(picker);
-  // console.log(event.target)
+  event.target.classList.replace(event.target.classList[1], picker);
+  console.log(event.target);
 }
 
-
+for (const many of darkMode) {
+counter = 0;
+many.addEventListener('click', function() {
+  counter++;
+  if (counter / 2 !== 0) {
+    document.querySelector('.color-1').style.backgroundColor = 'dark-red';
+    document.querySelector('.color-2').style.backgroundColor = 'dark-blue';
+    document.querySelector('.color-3').style.backgroundColor = 'dark-purple';
+    document.querySelector('.color-4').style.backgroundColor = 'dark-magneta';
+  }
+});
+}
 
 // selector.addEventListener('click', function(event) {
 //   event.target.console.log(style.color);
